@@ -4,13 +4,16 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.ts",
+    "nodemon": "nodemon app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/koa": "^2.11.6",
+    "@types/koa-router": "^7.4.1",
     "koa": "^2.13.1",
     "koa-controllers": "^0.1.6",
     "koa-router": "^10.0.0"
