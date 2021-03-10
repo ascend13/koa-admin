@@ -1,18 +1,23 @@
 import mysql from 'mysql2';
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '3344825hb',
-    database: 'account'
-})
+const query = () => {
+    return new Promise((resolve) => {
+        const connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '3344825hb',
+            database: 'account'
+        })
+        
+        connection.connect();
+        
+        connection.query("select * from users where id = 1", function(err, res) {
+            if(err) throw err;
+            resolve(res);
+        });
+        
+        connection.end();
+    })
+}
 
-connection.connect();
-
-connection.query("select * from users", function(err, res, fields) {
-    if(err) throw err;
-    console.log(res);
-    console.log(fields);
-});
-
-connection.end();
+export default query;

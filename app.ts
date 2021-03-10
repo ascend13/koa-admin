@@ -1,15 +1,16 @@
 import { Context } from "koa";
-
-const Koa = require("koa");
-const Router = require("koa-router")
+import Koa from 'koa';
+import Router from 'koa-router';
+import query from "./test";
 
 const app = new Koa();
 const router = new Router();
 
 // 路由
-router.get("/", async (ctx: Context) => {
+router.get("/api/test", async (ctx: Context) => {
+    const data = await query()
     ctx.body = {
-        msg: 'koa接口返回'
+        msg: data
     }
 })
 
